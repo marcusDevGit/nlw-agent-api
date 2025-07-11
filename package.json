@@ -1,0 +1,37 @@
+{
+  "name": "agent-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file .env --experimental-strip-types --no-warnings src/server.ts",
+    "dev": "node --env-file .env --experimental-strip-types --no-warnings --watch src/server.ts",
+    "db:seed": "node --env-file .env --experimental-strip-types --no-warnings src/db/seed.ts",
+    "kill-port": "kill -9 $(lsof -ti :3331)",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Marcus",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^24.0.12",
+    "drizzle-kit": "^0.31.4",
+    "drizzle-seed": "^0.3.1",
+    "nodemon": "^3.1.10",
+    "prettier": "3.6.2",
+    "typescript": "^5.8.3",
+    "ultracite": "5.0.32"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "dotenv": "^17.2.0",
+    "drizzle-orm": "^0.44.2",
+    "fastify": "^5.4.0",
+    "fastify-type-provider-zod": "^5.0.2",
+    "postgres": "^3.4.7",
+    "zod": "^4.0.0"
+  }
+}

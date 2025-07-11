@@ -1,0 +1,11 @@
+services:
+  agent-api:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: agent
+      POSTGRES_PASSWORD: agent
+      POSTGRES_DB: agent_api_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./docker/setup.sql:/docker-entrypoint-initdb.d/setup.sql
