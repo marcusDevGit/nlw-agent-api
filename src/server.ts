@@ -1,13 +1,15 @@
+import { fastifyCors } from '@fastify/cors';
 import { fastify } from 'fastify';
 import {
   serializerCompiler,
   validatorCompiler,
   type ZodTypeProvider,
 } from 'fastify-type-provider-zod';
-import { fastifyCors } from '@fastify/cors';
-import { sql } from './db/conection.ts';
 import { env } from './env.ts';
-import { getRoomsRouts } from './http/routes/get-rooms.ts';
+import { getRoomsRoute } from './http/routes/get-rooms.ts';
+import { crerateRoomRoute } from './http/routes/create-rooms.ts';
+import { getRoomsQuestionsRoute } from './http/routes/get-rooms-questions.ts';
+import { createQuestionsRoute } from './http/routes/create-questions.ts';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -20,7 +22,10 @@ app.setValidatorCompiler(validatorCompiler);
 app.get('/health', () => {
   return { status: 'ok' };
 });
-app.register(getRoomsRouts);
+app.register(getRoomsRoute);
+app.register(crerateRoomRoute);
+app.register(getRoomsQuestionsRoute);
+app.register(createQuestionsRoute);
 
 app.listen({ port: env.PORT }).then(() => {
   console.log(`Server rodando na porta ${env.PORT}!!!"`);
