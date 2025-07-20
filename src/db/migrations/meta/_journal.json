@@ -15,6 +15,13 @@
       "when": 1752364896249,
       "tag": "0001_ambitious_ultimo",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752880452539,
+      "tag": "0002_lazy_ultron",
+      "breakpoints": true
     }
   ]
 }

@@ -1,2 +1,4 @@
 node_modules
 .env
+192.168.100.53+2-key.pem
+192.168.100.53+2.pem
